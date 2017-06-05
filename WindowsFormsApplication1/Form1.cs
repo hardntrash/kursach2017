@@ -101,14 +101,6 @@ namespace WindowsFormsApplication1
             }
         }
 
-        private void richTextBox1_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if(e.KeyChar == 13)
-            {
-                e.Handled = true;
-            }
-        }
-
         private void richTextBox1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
