@@ -36,7 +36,6 @@
             this.удалитьТерминToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,8 +60,7 @@
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.менюToolStripMenuItem,
-            this.toolStripTextBox1,
-            this.toolStripMenuItem1});
+            this.toolStripTextBox1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(643, 25);
@@ -106,13 +104,7 @@
             this.toolStripTextBox1.Size = new System.Drawing.Size(100, 21);
             this.toolStripTextBox1.Enter += new System.EventHandler(this.toolStripTextBox1_Enter);
             this.toolStripTextBox1.Leave += new System.EventHandler(this.toolStripTextBox1_Leave);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(113, 21);
-            this.toolStripMenuItem1.Text = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.toolStripTextBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.toolStripTextBox1_KeyDown);
             // 
             // MainForm
             // 
@@ -124,7 +116,9 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
-            this.Text = "MainForm";
+            this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Текст помощи";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.menuStrip1.ResumeLayout(false);
@@ -144,6 +138,5 @@
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem удалитьТерминToolStripMenuItem;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

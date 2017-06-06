@@ -105,7 +105,9 @@
             this.Name = "SearchForm";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SearchForm";
+            this.Text = "Поиск термина";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.SearchForm_FormClosed);
+            this.Load += new System.EventHandler(this.SearchForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

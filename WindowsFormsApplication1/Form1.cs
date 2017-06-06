@@ -14,12 +14,13 @@ namespace WindowsFormsApplication1
 {
     public partial class Form1 : Form
     {
+        LinkedList<string> _linkString;
+        MainForm mainform;
         public Form1()
         {
             InitializeComponent();
-        }
-        LinkedList<string> _linkString;
-        MainForm mainform;
+            mainform = new MainForm();
+        }        
         private void button1_Click(object sender, EventArgs e)
         {
             _linkString = new LinkedList<string>(richTextBox1.Lines);

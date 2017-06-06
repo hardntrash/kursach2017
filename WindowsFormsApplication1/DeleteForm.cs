@@ -17,11 +17,11 @@ namespace WindowsFormsApplication1
         public DeleteForm()
         {
             InitializeComponent();
+            mainform = new MainForm();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            mainform = new MainForm();
             List<string> strList = new List<string>();
             string deleteTerm = textBox1.Text;
             string file = "text.txt";
@@ -53,6 +53,11 @@ namespace WindowsFormsApplication1
             wf.Close();
             mainform.Show();
             this.Close();
+        }
+
+        private void DeleteForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mainform.Show();
         }
     }
 }

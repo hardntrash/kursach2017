@@ -16,9 +16,11 @@ namespace WindowsFormsApplication1
         Form1 addform;
         DeleteForm delform;
         SearchForm searchform;
+        public List<string> strList;
         public MainForm()
         {
             InitializeComponent();
+            strList = new List<string>();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -77,33 +79,6 @@ namespace WindowsFormsApplication1
             delform = new DeleteForm();
             delform.Show();
         }
-        
-
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            searchform = new SearchForm();
-            List<string> strList = new List<string>();
-            string searchTerm = toolStripTextBox1.Text;
-            string file = "text.txt";
-            StreamReader rf = new StreamReader(file);
-            string str = null;
-            while ((str = rf.ReadLine()) != null)
-            {
-                if (str == searchTerm)
-                {
-                    do
-                    {
-                       strList.Add(rf.ReadLine());
-                    }
-                    while (str == "-=-");
-                    rf.Close();
-                    this.Hide();
-                    searchform.Show();
-                    return;
-                }
-            }
-            rf.Close();
-        }
 
         private void toolStripTextBox1_Enter(object sender, EventArgs e)
         {
@@ -113,6 +88,44 @@ namespace WindowsFormsApplication1
         private void toolStripTextBox1_Leave(object sender, EventArgs e)
         {
                 toolStripTextBox1.Text = "Поиск термина";
+        }
+
+        private void toolStripTextBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                search();
+            }
+            if(e.KeyCode == Keys.Space)
+            {
+                e.Handled = true;
+            }
+        }
+
+        void search()
+        {
+            searchform = new SearchForm();
+            string searchTerm = toolStripTextBox1.Text;
+            string file = "text.txt";
+            StreamReader f = new StreamReader(file);
+            string str = null;
+            while ((str = f.ReadLine()) != null)
+            {
+                if (str == searchTerm)
+                {
+                    strList.Add(str);
+                    do
+                    {
+                        strList.Add(f.ReadLine());
+                    }
+                    while (str == "-=-");
+                    this.Hide();
+                    searchform.Show();
+                    f.Close();
+                    break;
+                }
+            }
+            f.Close();
         }
     }
 }

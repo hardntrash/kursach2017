@@ -17,6 +17,7 @@ namespace WindowsFormsApplication1
         public SearchForm()
         {
             InitializeComponent();
+            mainform = new MainForm();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -28,7 +29,6 @@ namespace WindowsFormsApplication1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            mainform = new MainForm();
             List<string> strList = new List<string>();
             string deleteTerm = textBox1.Text;
             string file = "text.txt";
@@ -60,6 +60,20 @@ namespace WindowsFormsApplication1
             wf.Close();
             mainform.Show();
             this.Close();
+        }
+
+        private void SearchForm_Load(object sender, EventArgs e)
+        {
+            textBox1.Text = mainform.strList[0];
+            for (int i = 1; i < mainform.strList.Count; i++)
+            {
+                richTextBox1.Text += mainform.strList[i] + "\r\n";
+            }
+        }
+
+        private void SearchForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            mainform.Show();
         }
     }
 }

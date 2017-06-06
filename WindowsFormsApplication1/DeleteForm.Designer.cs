@@ -59,8 +59,10 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "DeleteForm";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "DeleteForm";
+            this.Text = "Удаление термина";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DeleteForm_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();
 
