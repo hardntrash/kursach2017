@@ -18,12 +18,15 @@ namespace WindowsFormsApplication1
         {
             InitializeComponent();
         }
-        private LinkedList<string> _linkString;
-        private MainForm mainform;
+        LinkedList<string> _linkString;
+        MainForm mainform;
         private void button1_Click(object sender, EventArgs e)
         {
             _linkString = new LinkedList<string>(richTextBox1.Lines);
-            _linkString.AddFirst(textBox1.Text.Substring(0,1).ToUpper()+textBox1.Text.Substring(1,textBox1.Text.Length-1));
+            if (textBox1.Text != "")
+            {
+                _linkString.AddFirst(textBox1.Text.Substring(0, 1).ToUpper() + textBox1.Text.Substring(1, textBox1.Text.Length - 1));
+            }
             _linkString.AddLast("-=-");
             bool chg = Find_Termin(Convert.ToString(_linkString.First.Value));
             if(chg == true)

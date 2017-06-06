@@ -14,6 +14,8 @@ namespace WindowsFormsApplication1
     public partial class MainForm : Form
     {
         Form1 addform;
+        DeleteForm delform;
+        SearchForm searchform;
         public MainForm()
         {
             InitializeComponent();
@@ -21,6 +23,7 @@ namespace WindowsFormsApplication1
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            toolStripTextBox1.Text = "Поиск термина";
             LinkedList<string> _linkstring = new LinkedList<string>();
             List<string> _list = new List<string>();
             StreamReader f = new StreamReader("text.txt");
@@ -70,30 +73,46 @@ namespace WindowsFormsApplication1
 
         private void удалитьТерминToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            delform = new DeleteForm();
+            delform.Show();
         }
-        bool Find_Termin(string findTerm)
+        
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            StreamReader f = new StreamReader("text.txt");
-            string sr = null;
-            while ((sr = f.ReadLine()) != null)
+            searchform = new SearchForm();
+            List<string> strList = new List<string>();
+            string searchTerm = toolStripTextBox1.Text;
+            string file = "text.txt";
+            StreamReader rf = new StreamReader(file);
+            string str = null;
+            while ((str = rf.ReadLine()) != null)
             {
-                if (sr == findTerm)
+                if (str == searchTerm)
                 {
-                    MessageBox.Show(String.Format("Данный термин \"{0}\" уже задан", sr));
-                    f.Close();
-                    return false;
-                }
-                else
-                {
-                    while (sr != "-=-")
+                    do
                     {
-                        sr = f.ReadLine();
+                       strList.Add(rf.ReadLine());
                     }
+                    while (str == "-=-");
+                    rf.Close();
+                    this.Hide();
+                    searchform.Show();
+                    return;
                 }
             }
-            f.Close();
-            return true;
+            rf.Close();
+        }
+
+        private void toolStripTextBox1_Enter(object sender, EventArgs e)
+        {
+            toolStripTextBox1.Text = null;
+        }
+
+        private void toolStripTextBox1_Leave(object sender, EventArgs e)
+        {
+                toolStripTextBox1.Text = "Поиск термина";
         }
     }
 }
