@@ -58,6 +58,7 @@
             // 
             this.textBox1.Location = new System.Drawing.Point(64, 9);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(560, 20);
             this.textBox1.TabIndex = 2;
             // 
@@ -65,6 +66,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(12, 55);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(615, 142);
             this.richTextBox1.TabIndex = 3;
             this.richTextBox1.Text = "";
