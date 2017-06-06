@@ -37,7 +37,7 @@ namespace WindowsFormsApplication1
                     }
                     while (str == "-=-");
                     rf.ReadLine();
-                    MessageBox.Show("термин удален");
+                    MessageBox.Show("Термин удален");
                 }
                 else
                 {

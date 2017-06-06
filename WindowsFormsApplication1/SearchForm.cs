@@ -44,7 +44,7 @@ namespace WindowsFormsApplication1
                     }
                     while (str == "-=-");
                     rf.ReadLine();
-                    MessageBox.Show("термин удален");
+                    MessageBox.Show("Термин удален");
                 }
                 else
                 {
@@ -64,16 +64,19 @@ namespace WindowsFormsApplication1
 
         private void SearchForm_Load(object sender, EventArgs e)
         {
-            textBox1.Text = mainform.strList[0];
-            for (int i = 1; i < mainform.strList.Count; i++)
-            {
-                richTextBox1.Text += mainform.strList[i] + "\r\n";
-            }
         }
 
         private void SearchForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             mainform.Show();
+        }
+        public void addFormText(List<string> strlst) 
+        {
+            textBox1.Text = strlst[0];
+            for (int i = 1; i < strlst.Count; i++)
+            {
+                richTextBox1.Text += strlst[i] + "\r\n";
+            }
         }
     }
 }

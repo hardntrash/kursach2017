@@ -116,9 +116,10 @@ namespace WindowsFormsApplication1
                     strList.Add(str);
                     do
                     {
-                        strList.Add(f.ReadLine());
+                        strList.Add(str = f.ReadLine());
                     }
                     while (str == "-=-");
+                    searchform.addFormText(strList);
                     this.Hide();
                     searchform.Show();
                     f.Close();
